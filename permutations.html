@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Permutations</title>
+  </head>
+  <body>
+    <center>
+      <h1>
+        <u> Permutations of the array of distinct integers. </u>
+      </h1>
+    </center>
+    <h2></h2>
+    <h3></h3>
+    <script>
+      let arrayInput = prompt(
+        "Enter array of distinct integers (space separated)"
+      );
+      let ip = arrayInput.split(" ").map(function (item) {
+        return parseInt(item);
+      });
+
+      document.querySelector("h2").innerHTML = `Given array input = [${ip}]`;
+
+      function permute(nums) {
+        const results = [];
+        if (nums.length === 0) {
+          return [[]];
+        }
+        for (let i = 0; i < nums.length; i++) {
+          const remainingNums = nums.slice(0, i).concat(nums.slice(i + 1));
+          const permutations = permute(remainingNums);
+          for (const permutation of permutations) {
+            results.push([nums[i], ...permutation]);
+          }
+        }
+        return results; 
+      }
+
+      document.querySelector("h3").innerHTML = `Permutations: ${JSON.stringify(
+        permute(ip)
+      )}`;
+    </script>
+  </body>
+</html>

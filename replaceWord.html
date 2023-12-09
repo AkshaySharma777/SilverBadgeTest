@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Replace a word in a given sentence</title>
+</head>
+<body>
+  <center><h1><u>Replace a word in a given sentence</u></h1></center>
+  <script>
+    const sentence = prompt("Input your sentence.");
+    const oldWord = prompt("Input the word you want to replace.");
+    const newWord = prompt("Input the new word you want to replace with.");
+    document.write(`<h2>Input sentence is : "${sentence}"</h2>`);
+    document.write(`<h4>Old word is : "${oldWord}"</h4>`);
+    document.write(`<h4>New word is : "${newWord}"</h4>`);
+    const result = sentence.replace(oldWord, newWord);
+    document.writeln(`<h4>After replacing the old words with new words the output is : </h4>`);
+    document.writeln(`<h4>${result}</h4>`);
+  </script>
+</body>
+</html>
